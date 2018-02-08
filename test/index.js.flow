@@ -1,0 +1,63 @@
+// @flow
+
+import EventEmitter from '..'
+
+declare function createEmitter(): EventEmitter<{
+  foo: [string],
+  bar: [string, number],
+}>
+
+var emitter = createEmitter()
+
+emitter.on('foo', (a: string) => {})
+// $FlowFixMe
+emitter.on('foo', (a: number) => {})
+emitter.on('bar', (a: string, b: number) => {})
+// $FlowFixMe
+emitter.on('bar', (a: number, b: number) => {})
+// $FlowFixMe
+emitter.on('baz', (a: number) => {})
+
+emitter.once('foo', (a: string) => {})
+// $FlowFixMe
+emitter.once('foo', (a: number) => {})
+emitter.once('bar', (a: string, b: number) => {})
+// $FlowFixMe
+emitter.once('bar', (a: number, b: number) => {})
+// $FlowFixMe
+emitter.once('baz', (a: number) => {})
+
+emitter.addListener('foo', (a: string) => {})
+// $FlowFixMe
+emitter.addListener('foo', (a: number) => {})
+emitter.addListener('bar', (a: string, b: number) => {})
+// $FlowFixMe
+emitter.addListener('bar', (a: number, b: number) => {})
+// $FlowFixMe
+emitter.addListener('baz', (a: number) => {})
+
+emitter.prependListener('foo', (a: string) => {})
+// $FlowFixMe
+emitter.prependListener('foo', (a: number) => {})
+emitter.prependListener('bar', (a: string, b: number) => {})
+// $FlowFixMe
+emitter.prependListener('bar', (a: number, b: number) => {})
+// $FlowFixMe
+emitter.prependListener('baz', (a: number) => {})
+
+emitter.prependOnceListener('foo', (a: string) => {})
+// $FlowFixMe
+emitter.prependOnceListener('foo', (a: number) => {})
+emitter.prependOnceListener('bar', (a: string, b: number) => {})
+// $FlowFixMe
+emitter.prependOnceListener('bar', (a: number, b: number) => {})
+// $FlowFixMe
+emitter.prependOnceListener('baz', (a: number) => {})
+
+emitter.emit('bar', 'a', 2)
+// $FlowFixMe
+emitter.emit('bar', 'a')
+// $FlowFixMe
+emitter.emit('bar', 'a', 'b')
+// $FlowFixMe
+emitter.emit('baz', 'qux')

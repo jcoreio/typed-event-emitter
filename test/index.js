@@ -1,10 +1,10 @@
 // @flow
 
-require('..')
+var EventEmitter = require('..')
+var expect = require('chai').expect
 
-describe('test setup', function () {
-  it('works', function () {
-
+describe('typed-event-emitter', function () {
+  it('exports EventEmitter', function () {
+    expect(EventEmitter).to.equal(require('events'))
   })
 })
-

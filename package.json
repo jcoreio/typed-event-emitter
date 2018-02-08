@@ -1,7 +1,7 @@
 {
-  "name": "agnostic-library-skeleton",
-  "version": "1.0.0",
-  "description": "my skeleton for transpiler-free JS packages",
+  "name": "@jcoreio/typed-event-emitter",
+  "version": "0.0.0-development",
+  "description": "fully type-safe EventEmitter flow declaration",
   "main": "index.js",
   "author": "Andy Edwards",
   "license": "MIT",
@@ -39,15 +39,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jedwards1211/agnostic-library-skeleton.git"
+    "url": "https://github.com/jcoreio/typed-event-emitter.git"
   },
   "keywords": [
     "skeleton"
   ],
   "bugs": {
-    "url": "https://github.com/jedwards1211/agnostic-library-skeleton/issues"
+    "url": "https://github.com/jcoreio/typed-event-emitter/issues"
   },
-  "homepage": "https://github.com/jedwards1211/agnostic-library-skeleton#readme",
+  "homepage": "https://github.com/jcoreio/typed-event-emitter#readme",
   "devDependencies": {
     "@commitlint/cli": "^6.0.2",
     "@commitlint/config-conventional": "^6.0.2",
@@ -58,7 +58,7 @@
     "eslint": "^4.16.0",
     "eslint-plugin-flowtype": "^2.42.0",
     "eslint-watch": "^3.1.3",
-    "flow-bin": "^0.64.0",
+    "flow-bin": "^0.65.0",
     "flow-watch": "^1.1.1",
     "husky": "^0.14.3",
     "istanbul": "^0.4.5",
