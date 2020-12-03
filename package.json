@@ -56,15 +56,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/@jcoreio/typed-event-emitter.git"
+    "url": "https://github.com/jcoreio/typed-event-emitter.git"
   },
   "keywords": [
     "skeleton"
   ],
   "bugs": {
-    "url": "https://github.com/@jcoreio/typed-event-emitter/issues"
+    "url": "https://github.com/jcoreio/typed-event-emitter/issues"
   },
-  "homepage": "https://github.com/@jcoreio/typed-event-emitter#readme",
+  "homepage": "https://github.com/jcoreio/typed-event-emitter#readme",
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
