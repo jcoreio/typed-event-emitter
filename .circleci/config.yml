@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+
+    steps:
+      - checkout
+      - run:
+          name: Setup NPM Token
+          command: |
+            yarn config set registry "https://registry.npmjs.org/"
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+            echo "registry=https://registry.npmjs.org/" >> .npmrc
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - run:
+          name: build
+          command: yarn prepublishOnly
+      - run:
+          name: upload test coverage
+          command: yarn codecov || true
+      - run:
+          name: release
+          command: yarn run semantic-release || true
