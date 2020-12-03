@@ -1987,9 +1987,10 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flow-bin@^0.65.0:
-  version "0.65.0"
-  resolved "https://registry.npmjs.org/flow-bin/-/flow-bin-0.65.0.tgz#64ffeca27211c786e2d68508c65686ba1b8a2169"
+flow-bin@^0.138.0:
+  version "0.138.0"
+  resolved "https://registry.npmjs.org/flow-bin/-/flow-bin-0.138.0.tgz#a0c81a3dd1ed34771b33b7e91078ed260301aa17"
+  integrity sha512-y3twwNeN0FWEK0vvJo/5SiC/OQVlhubGRyOPIS6p49b2yiiWE/cBFG/aC9kFXFfh7Orewe5O5B2X0+IiEOCYIw==
 
 flow-watch@^1.1.1:
   version "1.1.1"

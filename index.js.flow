@@ -1,6 +1,23 @@
 // @flow
 
-declare export default class EventEmitter<Events: Object> {
+export interface EventEmitterInterface<Events: {}> {
+  addListener<Event: $Keys<Events>>(event: Event, listener: (...($ElementType<Events, Event>)) => any): EventEmitterInterface<Events>;
+  emit: <Event: $Keys<Events>>(event: Event, ...($ElementType<Events, Event>)) => boolean;
+  eventNames(): Array<$Keys<Events>>;
+  listeners(event: $Keys<Events>): Array<Function>;
+  listenerCount(event: $Keys<Events>): number;
+  on<Event: $Keys<Events>>(event: Event, listener: (...($ElementType<Events, Event>)) => any): EventEmitterInterface<Events>;
+  once<Event: $Keys<Events>>(event: Event, listener: (...($ElementType<Events, Event>)) => any): EventEmitterInterface<Events>;
+  prependListener<Event: $Keys<Events>>(event: Event, listener: (...($ElementType<Events, Event>)) => any): EventEmitterInterface<Events>;
+  prependOnceListener<Event: $Keys<Events>>(event: Event, listener: (...($ElementType<Events, Event>)) => any): EventEmitterInterface<Events>;
+  removeAllListeners(event?: $Keys<Events>): EventEmitterInterface<Events>;
+  removeListener(event: $Keys<Events>, listener: Function): EventEmitterInterface<Events>;
+  setMaxListeners(n: number): EventEmitterInterface<Events>;
+  getMaxListeners(): number;
+}
+
+
+declare export default class EventEmitter<Events: {}> implements EventEmitterInterface<Events> {
   addListener<Event: $Keys<Events>>(event: Event, listener: (...($ElementType<Events, Event>)) => any): this;
   emit: <Event: $Keys<Events>>(event: Event, ...($ElementType<Events, Event>)) => boolean;
   eventNames(): Array<$Keys<Events>>;
