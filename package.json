@@ -1,5 +1,5 @@
 {
-  "name": "untranspiled-js-library-skeleton",
+  "name": "@jcoreio/typed-event-emitter",
   "version": "0.0.0-development",
   "description": "fully type-safe EventEmitter flow declaration",
   "main": "index.js",
@@ -56,15 +56,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jedwards1211/untranspiled-js-library-skeleton.git"
+    "url": "https://github.com/@jcoreio/typed-event-emitter.git"
   },
   "keywords": [
     "skeleton"
   ],
   "bugs": {
-    "url": "https://github.com/jedwards1211/untranspiled-js-library-skeleton/issues"
+    "url": "https://github.com/@jcoreio/typed-event-emitter/issues"
   },
-  "homepage": "https://github.com/jedwards1211/untranspiled-js-library-skeleton#readme",
+  "homepage": "https://github.com/@jcoreio/typed-event-emitter#readme",
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
