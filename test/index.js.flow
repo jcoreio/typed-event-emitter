@@ -2,10 +2,10 @@
 
 import EventEmitter from '..'
 
-declare function createEmitter(): EventEmitter<{
+declare function createEmitter(): EventEmitter<{|
   foo: [string],
   bar: [string, number],
-}>
+|}>
 
 var emitter = createEmitter()
 

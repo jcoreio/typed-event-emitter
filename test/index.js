@@ -1,5 +1,6 @@
 // @flow
 
+const { describe, it } = require('mocha')
 var EventEmitter = require('..')
 var expect = require('chai').expect
 

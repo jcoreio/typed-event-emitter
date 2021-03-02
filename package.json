@@ -14,14 +14,14 @@
     "test:watch": "cross-env NODE_ENV=test mocha --watch $npm_package_config_mocha",
     "test:debug": "cross-env NODE_ENV=test mocha --inspect-brk $npm_package_config_mocha",
     "codecov": "nyc report --reporter=text-lcov > coverage.lcov; codecov",
-    "prepublishOnly": "npm run lint && npm test",
+    "prepublishOnly": "npm run lint && flow && npm test",
     "open:coverage": "open coverage/lcov-report/index.html",
     "semantic-release": "semantic-release"
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -e $GIT_PARAMS",
-      "pre-commit": "lint-staged && npm run lint",
+      "pre-commit": "lint-staged && npm run lint && flow",
       "pre-push": "npm test"
     }
   },
@@ -75,6 +75,7 @@
     "cross-env": "^5.2.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
+    "flow-bin": "^0.145.0",
     "husky": "^4.3.0",
     "istanbul": "^0.4.5",
     "lint-staged": "^10.4.0",
