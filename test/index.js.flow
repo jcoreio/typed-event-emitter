@@ -1,6 +1,6 @@
 // @flow
 
-import EventEmitter from '..'
+import EventEmitter from '../src'
 
 declare function createEmitter(): EventEmitter<{|
   foo: [string],
