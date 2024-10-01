@@ -52,7 +52,7 @@ export default class EventEmitter<Events extends Record<string, any[]>>
   ) => boolean
   emitted<Event extends keyof Events>(
     event: Event,
-    options: pEvent.MultiArgumentsOptions<Events[Event]>
+    options: pEvent.MultiArgumentsOptions<[Events[Event]]>
   ): Promise<Events[Event]>
   emitted<Event extends keyof Events>(
     event: Event,
