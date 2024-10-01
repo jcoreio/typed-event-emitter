@@ -1,11 +1,18 @@
-// @flow
-
 const { describe, it } = require('mocha')
-var EventEmitter = require('../src')
+var TypedEventEmitter = require('../src')
 var expect = require('chai').expect
 
 describe('typed-event-emitter', function () {
-  it('exports EventEmitter', function () {
-    expect(EventEmitter).to.equal(require('events'))
+  it('exports EventEmitter subclass', function () {
+    expect(new TypedEventEmitter()).to.be.an.instanceOf(require('events'))
+  })
+  it(`.emitted`, function () {
+    const emitter = new TypedEventEmitter()
+    return Promise.all([
+      emitter.emitted('foo'),
+      emitter.emit('foo', 'blah'),
+    ]).then(([event]) => {
+      expect(event).to.equal('blah')
+    })
   })
 })

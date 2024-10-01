@@ -4,6 +4,14 @@
 
 import EventEmitter from '../src/index'
 
+type AssertEqual<T, U> = (<V>() => V extends T ? 1 : 2) extends <
+  V
+>() => V extends U ? 1 : 2
+  ? true
+  : false
+
+const assertEqual = <A, B>(val: AssertEqual<A, B>) => val
+
 declare function createEmitter(): EventEmitter<{
   foo: [string]
   bar: [string, number]
@@ -11,6 +19,15 @@ declare function createEmitter(): EventEmitter<{
 }>
 
 const emitter = createEmitter()
+
+async function foo() {
+  const event = await emitter.emitted('foo', (x: string) => true)
+  assertEqual<typeof event, string>(true)
+  const event2 = await emitter.emitted('bar', { multiArgs: true })
+  assertEqual<typeof event2, [string, number]>(true)
+  const event3 = await emitter.emitted('foo', { filter: (x: string) => true })
+  assertEqual<typeof event, string>(true)
+}
 
 emitter.on('empty', () => {})
 // @ts-expect-error wrong arg count

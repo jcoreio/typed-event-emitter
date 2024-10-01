@@ -1,3 +1,5 @@
+import * as pEvent from 'p-event'
+
 export interface EventEmitterInterface<Events extends Record<string, any[]>> {
   addListener<Event extends keyof Events>(
     event: Event,
@@ -48,6 +50,18 @@ export default class EventEmitter<Events extends Record<string, any[]>>
     event: Event,
     ...args: Events[Event]
   ) => boolean
+  emitted<Event extends keyof Events>(
+    event: Event,
+    options: pEvent.MultiArgumentsOptions<Events[Event]>
+  ): Promise<Events[Event]>
+  emitted<Event extends keyof Events>(
+    event: Event,
+    options?: pEvent.FilterFunction<Events[Event]>
+  ): Promise<Events[Event][0]>
+  emitted<Event extends keyof Events>(
+    event: Event,
+    options?: pEvent.Options<Events[Event]>
+  ): Promise<Events[Event][0]>
   eventNames(): Array<keyof Events>
   listeners<Event extends keyof Events>(
     event: Event

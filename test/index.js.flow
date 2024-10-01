@@ -9,6 +9,13 @@ declare function createEmitter(): EventEmitter<{|
 
 var emitter = createEmitter()
 
+async function foo() {
+  const event: string = await emitter.emitted('foo', (x: string) => true)
+  const event2: string = await emitter.emitted('foo', {
+    filter: (x: string) => true,
+  })
+}
+
 emitter.on('foo', (a: string) => {})
 // $FlowFixMe
 emitter.on('foo', (a: number) => {})

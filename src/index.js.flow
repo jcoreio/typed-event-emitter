@@ -9,6 +9,9 @@ export interface EventEmitterInterface<Events: {}> {
     event: Event,
     ...$ElementType<Events, Event>
   ) => boolean;
+  emitted: <Event: $Keys<Events>>(
+    event: Event
+  ) => Promise<$ElementType<$ElementType<Events, Event>, 0>>;
   eventNames(): Array<$Keys<Events>>;
   listeners(event: $Keys<Events>): Array<Function>;
   listenerCount(event: $Keys<Events>): number;
@@ -48,6 +51,18 @@ declare export default class EventEmitter<Events: {}>
     event: Event,
     ...$ElementType<Events, Event>
   ) => boolean;
+  emitted: <Event: $Keys<Events>>(
+    event: Event,
+    filter?: (event: $ElementType<$ElementType<Events, Event>, 0>) => boolean
+  ) => Promise<$ElementType<$ElementType<Events, Event>, 0>>;
+  emitted: <Event: $Keys<Events>>(
+    event: Event,
+    options?: {
+      // I can't figure out how to type multiArgs: true
+      multiArgs?: false,
+      filter?: (event: $ElementType<$ElementType<Events, Event>, 0>) => boolean,
+    }
+  ) => Promise<$ElementType<$ElementType<Events, Event>, 0>>;
   eventNames(): Array<$Keys<Events>>;
   listeners(event: $Keys<Events>): Array<Function>;
   listenerCount(event: $Keys<Events>): number;
